@@ -6,7 +6,7 @@ function Item({ name, category }) {
 
   function changeCart(){
     if (cartStatus === ""){
-      inCart("in cart")
+      inCart("in-cart")
     }
     else{
       inCart("")

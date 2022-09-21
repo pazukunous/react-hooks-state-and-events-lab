@@ -4,9 +4,8 @@ import itemData from "../data/items";
 
 function App() {
 
-  const [dark, setMode] = useState(true)
+  const [dark, setMode] = useState(false)
 
-  let currMode = 'Dark Mode'
 
   function changeLight(){
     setMode(!dark)
