@@ -3,11 +3,22 @@ import Item from "./Item";
 
 function ShoppingList({ items }) {
 
-  const [selectedCategory, updateCat] = useState("")
+  const [selectedCategory, updateCat] = useState("All")
 
   function changeFilter(event){
     updateCat(event.target.value)
+    //console.log(event.target.value)
   }
+
+  const newItemList = items.filter((item) => {
+    if (selectedCategory === "All"){
+      return item
+    }
+
+    if (item.category === selectedCategory){
+      return item
+    }
+  })
 
   return (
     <div className="ShoppingList">
@@ -20,7 +31,7 @@ function ShoppingList({ items }) {
         </select>
       </div>
       <ul className="Items">
-        {items.map((item) => (
+        {newItemList.map((item) => (
           <Item key={item.id} name={item.name} category={item.category} />
         ))}
       </ul>
